@@ -1,0 +1,293 @@
+1) what are Promises in JS?
+   => Promises are used to handle asynchronous operations in JavaScript
+   => They can handle multiple asynchronous operations easily and provide better error handling than callbacks because of callback hell in in callbacks
+      • PENDING: initial state, it is neither fulfilled nor rejected.
+      • FULFILLED: when the operation is successfully completed.
+      • REJECTED: when the operation is failed.
+                               <Example />
+      • const myPromise = new Promise((resolve, reject) => {
+        const a = 4;
+        const b = 4;
+        const c = 8;
+        if (a + b == c) {
+          resolve();
+        } else {
+          reject();
+        }
+     });
+
+     myPromise
+      .then(() => {
+        console.log("Success");
+     })
+      .catch(() => {
+        console.log("Failed");
+     });
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+2) what is Hoisting in JS?
+   => Hoisting in JS is the process where all the functions, variables are declared at the top of the scope even before the code execution
+   => It allows us to call functions before even writing the code. 
+      • PENDING: initial state, it is neither fulfilled nor rejected.
+      • FULFILLED: when the operation is successfully completed.
+      • REJECTED: when the operation is failed.
+                          <Example />
+      • function codeHoist(){
+        a = 10;
+        let b = 50;
+      }
+      codeHoist();
+      
+      console.log(a); // '10' -- because it is declared at the top of the scope because it doesnt have any variable assigned, The undeclared variable is assigned the global scope
+
+      console.log(b); // 'ReferenceError : b is not defined' -- because variable b the scope is confined and it is not available outside and we get a ReferenceError.
+
+
+
+************************************************************ |||||||||||||||||||||||||||||| ************************************************************
+3) what are closures?
+   => closures are the bundle of function together which has references to its surrounding state. in other words closures gives access to outer variables from a inner function 
+   => In JavaScript, closures are created every time a function is created
+                          <Example />
+    • function init() {
+    var name = 'Mozilla'; 
+    function displayName() {
+      alert(name);
+    }
+    displayName();
+   }
+   init();
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+4) call, apply & bind?
+   => Call, Apply, and Bind help keep our code clean
+
+   a) bind method
+   • bind() method creates a new function in JS are the function that are assigned to a variables and also they can be passes into the other functions as a parameters and later on returned from them as well and when this function in JS are the function that are assigned to a variables and also they can be passes into the other functions as a parameters and later on returned from them as well is called it has this keyword is set to the provided value
+   • makes the copy of the function it is being called upon
+                           <Example />
+   • var names = {
+      firstname: 'Vikas',
+      lastname: 'Shambhu ',
+      getFullName: function() {
+          var fullname = this.firstname + ' ' + this.lastname;
+          return fullname;
+       } 
+    };
+
+    var result = function() {
+       console.log(this.getFullName() + 'i love you');
+    };
+
+    var final = result.bind(names) // creates new object and binds pokemon
+
+    final(); // 'Vikas Shambhu i love you'
+
+
+ 
+   b) call method
+   • this method allows an object to use the method of an other
+   • The call() method does not make a copy of the function it is being called on
+                   <Example />
+   • function sayHello(){
+       return "Hello " + this.name;
+     }
+        
+     var obj = {name: "Sandy"};
+        
+     sayHello.call(obj); // Returns "Hello Sandy"
+
+
+   c) apply method
+   • The apply method is similar to the call() method. The only difference is that
+   • call() method takes arguments separately whereas, apply() method takes arguments as an array.
+                        <Example />
+   • function saySomething(message){
+        return this.name + " is " + message;
+     }
+        
+     var person4 = {name:  "John"};
+        
+     saySomething.apply(person4, ["awesome"]);
+
+
+
+
+************************************************************ |||||||||||||||||||||||||||||| ************************************************************
+5) what are callbacks in JS?
+   => callbacks is the function in JS are the function that are assigned to a variables and also they can be passes into the other functions as a parameters and later on returned from them as well which is passed into another fucntion as an argument(or paraeters), which is then called inside the another fucntion to complete the action
+   => a callback fucntion runs after the another function has finished
+   => Callbacks make sure that a function is not going to run before a task is completed but will run right after the particular task is completed. This is called asynchronous programming
+                         <Example />
+   • setTimeout(function() {  
+       console.log("This message is shown after 3 seconds");
+     }, 3000); // runs after 3 seconds
+
+   • document.queryselector("#callback-btn")
+       .addEventListener("click", function() {    
+       console.log("User has clicked on the button!");
+     });  // This time we will see a message on the console only when the user clicks on the button
+      
+
+
+
+************************************************************ |||||||||||||||||||||||||||||| ************************************************************
+6)What is the difference between null & undefined?
+ => Undefined means a variable has been declared but has not yet been assigned a value. On the other hand, null is an assignment value. It can be assigned to a variable as a representation of no value
+
+
+
+************************************************************ |||||||||||||||||||||||||||||| ************************************************************
+7) Event bubbling?
+ => Event bubbling is a method of event propagation in the HTML DOM, when an event is in an element inside another element, and both elements have registered a handle to that same event
+ => In event bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+ => addEventListener(type, listener, useCapture)
+ • type: Use to refer to the type of event.
+ • listener: function we want to call when the event occurs.
+ • userCapture: Boolean value. Boolean value indicates event phase. By Default useCapture is false
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+8) Lexicle Scope?
+ => Every function in JS has its own scope apart from this a function scope has the ability to access the variables defined in the parent scope
+ 
+ • var a = 10;
+   var Func1 = function () {
+      var b = 20;
+      var Func2 = function () {
+         var c = 30;
+         console.log(a, b, c);
+      };
+      Func2();
+   };
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+9) Classes in JS?
+ => classes are a the templates for creating objects & are declared using keywords CLASS
+ • class Name {
+     constructor(name) {
+     this.name = name;
+   }
+   yourName() {
+    alert(this.name);
+  }
+}
+  const user = new Name('vikas')
+  user.yourName();
+
+ • The constructor method is a special method for creating & initializing an   object created with a class
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+10) DOM in JS?
+ => The Document Object Model (DOM) is a programming interface for web documents.it is the page where program can change the structure, styles & content. web page is displayed by the browsers or by HTML & can be modified by by using a scipting language such as JavaScript
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+11)Recursion in JS?
+ => Recursion is a process of calling itself. A function that calls itself is called a recursive function.
+ => it runs until the specific condition met. To prevent infinite recursion, you can use if...else statement
+       function recurse() {
+          if(condition) {
+          recurse();
+       }
+       else {
+        // stop calling recurse()
+       }
+    }
+recurse();
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+12)Currying in JS?
+ => it is a technique in the functional programming where there is a transformation of the functions of multiple arguments into a functions single arguments in a sequence
+                <Example />
+  function calculateVolume(length, breadth, height) {
+      return length * breadth * height;
+  }
+  console.log(calculateVolume(4, 5, 6)); // 120
+
+              ///// To /////
+  function calculateVolume(length) {
+      return function (breadth) {
+         return function (height) {
+               return length * breadth * height;
+            }
+        }
+    }
+    console.log(calculateVolume(4)(5)(6)); // 120
+ 
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+13)Higher order function in JS?
+ =>Higher Order function in JS are the function that are assigned to a variables and also they can be passes into the other functions as a parameters and later on returned from them as well.
+                  <Example />
+ • sayHello = () => {
+    return `hello, ${name}`
+ }
+   const result = sayHello('vikas')
+   console.log(result) // hello, vikas
+
+=> Map, Filter, Reduce, ForEach are some of the example of Higher order function
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+14)Event Loop?
+ => We all know that JavaScript is a single-threaded programming language. it means code runs in one line at a time(synchronous way) & there is no possibility of running code in a parallel
+
+ => so event loop is something that makes JS as a asynchronous programming, by using some smart data structure which makes it multi-threaded language
+
+ => event loop is something that pulls the some sort of stuff or functions out of the queue & places it onto the function execution stack for example setTimeout api, this api is built into the browser, setTimeout function in JS are the function that are assigned to a variables and also they can be passes into the other functions as a parameters and later on returned from them as well waits for certain time and start its execution once the certain operations are completed
+
+
+
+
+************************************************************** |||||||||||||||||||||||||||||| ************************************************************
+15) Pure functions?
+ =>Pure function is a function that always returns the same result when the same arguments are passed to it.
+
+ =>Pure function has Produces no side effects.
+
+ =>Pure function in JS are the function that are assigned to a variables and also they can be passes into the other functions as a parameters and later on returned from them as well depends only on its own arguments.
+      function pure(arg) {
+         return 4 * arg;
+      }
+      pure(4) // 16
+
+ =>Below are the some side effects which a function should not produce in order to be considered as a pure function
+    Making a HTTP request
+    Mutating data
+    Printing to a screen or console
+    DOM Manipulation
+    Getting the current time
+
+=> The following example is not a pure function because rather than depending on its own variables, the function is depending on variables(A & B) that are outside of its scope. example for impure function
+    let A = 6;
+    let B = 4;
+    function pure() {
+       return A * B;
+    }
+
+
+
+
+
+
+
+
+
+
+
+

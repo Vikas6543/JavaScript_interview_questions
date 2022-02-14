@@ -1,0 +1,17 @@
+1) React LifeCycle? 
+ => the 4 phase are
+
+  • Initialization: this is the phase where the component is going to start its journey by setting up the initial state and the props, usually starts in constructor method
+
+  • Mounting: this is the phase where the react component is mounted on to the DOM & renders for the first time
+    it has 2 functions
+    a)componentWillMount(): this function is called right before the component is mounted on the DOM ie before the render() method is executed
+    b)componentDidMount(): this function is called right after the component is mounted on the DOM ie after the render() method is executed
+
+  • Updating: this is the phase where the states and props of a component are updated when some user events such as clicking, pressing a key on the keyboard, etc happens this results in the re-rendering of the component
+    a)shouldComponentUpdate(): determines whether the component should be updated or not
+    b)componentWillUpdate(): this function gets called once before the render() function is executed & after the updation of State or Props.
+    c)componentDidUpdate(): this function gets called once after the render() function is executed & after the updation of State or Props
+ 
+  • Unmounting: This is the final phase of the lifecycle of the component
+    a)componentWillUnmount(): this function is called right before the component is Unmounted from the DOM, ie the function is called once before the component is removed from the page & this is finally the end of lifecycle
