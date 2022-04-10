@@ -71,30 +71,24 @@ const comments = [
 ];
 
 // 1)What is Madison Marshall's user id?
-console.log(
-  users.find(
-    (user) => user.firstName === 'Madison' && user.lastName === 'Marshall'
-  )
+const result_1 = users.find(
+  (user) => user.firstName === 'Madison' && user.lastName === 'Marshall'
 );
 
 // 2) Who wrote the first comment
-console.log(users.find((user) => user.id === comments[0].userId));
+const result_2 = users.find((user) => user.id === comments[0].userId);
 
 // 3) Which user commented 'OK great thanks'?
-console.log(
-  users.find(
-    (user) =>
-      user.id ===
-      comments.find((comment) => comment.text === 'OK great thanks').userId
-  )
+const result_3 = users.find(
+  (user) =>
+    user.id ===
+    comments.find((comment) => comment.text === 'OK great thanks').userId
 );
 
 // 4) Add users first & Last Name to each comment in the comment array
-console.log(
-  comments.map((comment) => {
-    const { firstName, lastName } = users.find(
-      (user) => user.id === comment.userId
-    );
-    return { ...comment, firstName, lastName };
-  })
-);
+const result_4 = comments.map((comment) => {
+  const { firstName, lastName } = users.find(
+    (user) => user.id === comment.userId
+  );
+  return { ...comment, firstName, lastName };
+});

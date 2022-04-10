@@ -85,39 +85,35 @@ const users = [
   },
 ];
 
-// 1)Map Function -----  to find all users firstName & lastName
-console.log(users.map((user) => `${user.firstName} ${user.lastName}`));
+// 1) Map Function -----  to find all users firstName & lastName
+const result_1 = users.map((user) => `${user.firstName} ${user.lastName}`);
 
 // 2)Filter Function -----  to find users age above 30
-console.log(
-  users.filter(
-    (user) => new Date().getFullYear() - new Date(user.DOB).getFullYear() > 30
-  )
+const result_2 = users.filter(
+  (user) => new Date().getFullYear() - new Date(user.DOB).getFullYear() > 30
 );
 
 // 3)Sort Function -----  to find users age oldest to youngest
-console.log(
-  users.sort((userA, userB) => new Date(userA.DOB) - new Date(userB.DOB))
+const result_3 = users.sort(
+  (userA, userB) => new Date(userA.DOB) - new Date(userB.DOB)
 );
 
 // 4)Reduce Function -----  to add all users salary
-console.log(
-  users.reduce((accumulator, user) => accumulator + parseInt(user.salary), 0)
+const result_4 = users.reduce(
+  (accumulator, user) => accumulator + parseInt(user.salary),
+  0
 );
 
 // Reduce Function -----  to find average salary of all users
-console.log(
+const result_5 =
   users.reduce((accumulator, user) => accumulator + parseInt(user.salary), 0) /
-    users.length
-);
+  users.length;
 
 // Reduce Function -----  to find all users Department with numbers
-console.log(
-  users.reduce(
-    (accumulator, user) => ({
-      ...accumulator,
-      [user.department]: accumulator[user.department] + 1 || 1,
-    }),
-    {}
-  )
+const result_6 = users.reduce(
+  (accumulator, user) => ({
+    ...accumulator,
+    [user.department]: accumulator[user.department] + 1 || 1,
+  }),
+  {}
 );

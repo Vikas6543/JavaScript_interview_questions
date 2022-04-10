@@ -49,18 +49,23 @@ const orders = [
 ];
 
 // 1)Get a list of the orders for the customer ID 234 that have not been delivered.
-console.log(orders.filter((item) => !item.delivered && item.orderId === '234'));
+const result_1 = orders.filter(
+  (item) => !item.delivered && item.orderId === '234'
+);
+console.log(result_1);
 
 // 2)Create a new property on each order with the total price of items ordered.
-console.log(
-  orders.map((order) => {
-    const totalPrice = order.items.reduce((acc, curr) => acc + curr.price, 0);
-    return { ...order, totalPrice };
-  })
-);
+const result_2 = orders.map((order) => {
+  const totalPrice = order.items.reduce((acc, curr) => acc + curr.price, 0);
+  return { ...order, totalPrice };
+});
+console.log(result_2);
 
 // 3)Does all the orders have been delivered?
-console.log(orders.every((order) => order.delivered));
+const result_3 = orders.every((order) => order.delivered);
+console.log(result_3);
 
 // 4)Has the customer with ID '123' made any orders?
-console.log(orders.some((order) => order.customerId === '123'));
+const result_4 = orders.some((order) => order.customerId === '123');
+
+console.log(result_4);
