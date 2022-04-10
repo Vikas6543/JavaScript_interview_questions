@@ -165,3 +165,21 @@ function countVowels(str) {
 }
 
 console.log(countVowels('hello'));
+
+// **************************** 9) check whether an object contains given property.
+function hasProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+console.log(hasProperty({ name: 'John' }, 'name'));
+
+// ****************************** 10) convert object to array of key value pairs
+function objectToArray(obj) {
+  var arr = [];
+  for (var key in obj) {
+    arr.push(obj[key]);
+  }
+  return arr;
+}
+
+console.log(objectToArray({ a: 1, b: 2, c: 3 }));
