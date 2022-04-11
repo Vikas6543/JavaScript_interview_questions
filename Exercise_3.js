@@ -1,4 +1,4 @@
-// ********************** 1) remove duplicates from array using for loop
+// ********************** 1) remove duplicates from array
 function removeDuplicates(arr) {
   let unique = [];
   for (let i = 0; i < arr.length; i++) {
@@ -11,7 +11,7 @@ function removeDuplicates(arr) {
 
 console.log(removeDuplicates([1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 10]));
 
-// ***************************** 2) get the smallest two numbers & add first two numbers
+// ***************************** 2) get the smallest two numbers from array & add first two numbers in that array
 // Using ES6
 function sorted(numbers) {
   const sortedNum = numbers.sort((a, b) => a - b);
@@ -32,17 +32,20 @@ function smallTobig(numbers) {
     }
     result.push(numbers[i]);
   }
-  return result;
+  const [first, second] = result;
+  return first + second;
 }
 
 console.log(smallTobig([5, 2, 1, 4]));
 
 //  *************************************** 3) sort an array
 var givenArray = [5, 1, 99, 25];
+
 // a) ascending order
 givenArray.sort((a, b) => {
   return a - b;
 });
+
 // b) descending order
 givenArray.sort((a, b) => {
   return b - a;
@@ -114,7 +117,7 @@ function uniqueElements(arr1, arr2) {
 
 console.log(uniqueElements([1, 2, 3, 5], [1, 2, 3, 4, 5, 8, 9]));
 
-// ***************************** 6) swap an array with the given index using for loop
+// ***************************** 6) swap numbers in an array with the given index
 function swap(arr, index) {
   for (let i = 0; i < arr.length; i++) {
     if (i === index) {
@@ -137,8 +140,8 @@ console.log(randomItem(['apple', 'pear', 'orange']));
 
 // ****************************** 8) find nth largest number in an array
 function findNthLargest(arr, n) {
-  arr.sort((a, b) => a - b);
-  return arr[arr.length - n];
+  const sorted = arr.sort((a, b) => b - a);
+  return sorted[n - 1];
 }
 
 console.log(findNthLargest([2, 4, 6, 8], 3));
